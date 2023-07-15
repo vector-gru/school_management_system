@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setup\StudentClassController;
+use App\Http\Controllers\Backend\Setup\StudentYearController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,25 +73,25 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
     
     
     
-    // /// User Profile and Change Password 
-    // Route::prefix('setups')->group(function(){
+    /// Setups, settings management  and student
+    Route::prefix('setups')->group(function(){
     
-    // // Student Class Routes 
-    // Route::get('student/class/view', [StudentClassController::class, 'ViewStudent'])->name('student.class.view');
+    // Student Class Routes 
+    Route::get('student/class/view', [StudentClassController::class, 'ViewStudent'])->name('student.class.view');
     
-    // Route::get('student/class/add', [StudentClassController::class, 'StudentClassAdd'])->name('student.class.add');
+    Route::get('student/class/add', [StudentClassController::class, 'StudentClassAdd'])->name('student.class.add');
     
-    // Route::post('student/class/store', [StudentClassController::class, 'StudentClassStore'])->name('store.student.class');
+    Route::post('student/class/store', [StudentClassController::class, 'StudentClassStore'])->name('store.student.class');
     
-    // Route::get('student/class/edit/{id}', [StudentClassController::class, 'StudentClassEdit'])->name('student.class.edit');
+    Route::get('student/class/edit/{id}', [StudentClassController::class, 'StudentClassEdit'])->name('student.class.edit');
     
-    // Route::post('student/class/update/{id}', [StudentClassController::class, 'StudentClassUpdate'])->name('update.student.class');
+    Route::post('student/class/update/{id}', [StudentClassController::class, 'StudentClassUpdate'])->name('update.student.class');
     
-    // Route::get('student/class/delete/{id}', [StudentClassController::class, 'StudentClassDelete'])->name('student.class.delete');
+    Route::get('student/class/delete/{id}', [StudentClassController::class, 'StudentClassDelete'])->name('student.class.delete');
     
     // // Student Year Routes 
     
-    // Route::get('student/year/view', [StudentYearController::class, 'ViewYear'])->name('student.year.view');
+    Route::get('student/year/view', [StudentYearController::class, 'ViewYear'])->name('student.year.view');
     
     // Route::get('student/year/add', [StudentYearController::class, 'StudentYearAdd'])->name('student.year.add');
     
@@ -219,7 +222,7 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
     // Route::get('designation/delete/{id}', [DesignationController::class, 'DesignationDelete'])->name('designation.delete');
     
     
-    // }); 
+     }); 
     
     
     // /// Student Registration Routes  
@@ -272,7 +275,7 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
     
     // Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
     
-    // }); 
+    //}); 
     
     
     
