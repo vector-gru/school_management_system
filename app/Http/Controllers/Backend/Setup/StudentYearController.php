@@ -15,73 +15,73 @@ class StudentYearController extends Controller
     }
 
 
-    // public function StudentYearAdd(){
-    // 	return view('backend.setup.year.add_year');
-    // }
+    public function StudentYearAdd(){
+    	return view('backend.setup.year.add_year');
+    }
 
-	// public function StudentYearStore(Request $request){
+	public function StudentYearStore(Request $request){
 
-	//     	$validatedData = $request->validate([
-	//     		'name' => 'required|unique:student_years,name',
+	    	$validatedData = $request->validate([
+	    		'name' => 'required|unique:student_years,name',
 	    		
-	//     	]);
+	    	]);
 
-	//     	$data = new StudentYear();
-	//     	$data->name = $request->name;
-	//     	$data->save();
+	    	$data = new StudentYear();
+	    	$data->name = $request->name;
+	    	$data->save();
 
-	//     	$notification = array(
-	//     		'message' => 'Student Year Inserted Successfully',
-	//     		'alert-type' => 'success'
-	//     	);
+	    	$notification = array(
+	    		'message' => 'Student Year Inserted Successfully',
+	    		'alert-type' => 'success'
+	    	);
 
-	//     	return redirect()->route('student.year.view')->with($notification);
+	    	return redirect()->route('student.year.view')->with($notification);
 
-	//     }
-
-
-	//  public function StudentYearEdit($id){
-	//     	$editData = StudentYear::find($id);
-	//     	return view('backend.setup.year.edit_year',compact('editData'));
-
-	//     }
+	    }
 
 
-	//     public function StudentYearUpdate(Request $request,$id){
+	 public function StudentYearEdit($id){
+	    	$editData = StudentYear::find($id);
+	    	return view('backend.setup.year.edit_year',compact('editData'));
 
-	// 	$data = StudentYear::find($id);
+	    }
+
+
+	public function StudentYearUpdate(Request $request,$id){
+
+		$data = StudentYear::find($id);
      
-    //  $validatedData = $request->validate([
-    // 		'name' => 'required|unique:student_years,name,'.$data->id
+     $validatedData = $request->validate([
+    		'name' => 'required|unique:student_years,name,'.$data->id
     		
-    // 	]);
+    	]);
 
     	
-    // 	$data->name = $request->name;
-    // 	$data->save();
+    	$data->name = $request->name;
+    	$data->save();
 
-    // 	$notification = array(
-    // 		'message' => 'Student Year Updated Successfully',
-    // 		'alert-type' => 'success'
-    // 	);
+    	$notification = array(
+    		'message' => 'Student Year Updated Successfully',
+    		'alert-type' => 'success'
+    	);
 
-    // 	return redirect()->route('student.year.view')->with($notification);
-    // }
+    	return redirect()->route('student.year.view')->with($notification);
+    }
 
 
 
-	//  public function StudentYearDelete($id){
-	//     	$user = StudentYear::find($id);
-	//     	$user->delete();
+	 public function StudentYearDelete($id){
+	    	$user = StudentYear::find($id);
+	    	$user->delete();
 
-	//     	$notification = array(
-	//     		'message' => 'Student Year Deleted Successfully',
-	//     		'alert-type' => 'info'
-	//     	);
+	    	$notification = array(
+	    		'message' => 'Student Year Deleted Successfully',
+	    		'alert-type' => 'info'
+	    	);
 
-	//     	return redirect()->route('student.year.view')->with($notification);
+	    	return redirect()->route('student.year.view')->with($notification);
 
-	//     }
+	    }
 
 
 }
