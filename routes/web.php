@@ -13,9 +13,9 @@ use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\SchoolSubjectController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
-// use App\Http\Controllers\Backend\Setup\DesignationController;
+use App\Http\Controllers\Backend\Setup\DesignationController;
 
-// use App\Http\Controllers\Backend\Student\StudentRegController;
+use App\Http\Controllers\Backend\Student\StudentRegController;
 // use App\Http\Controllers\Backend\Student\StudentRollController;
 // use App\Http\Controllers\Backend\Student\RegistrationFeeController;
 // use App\Http\Controllers\Backend\Student\MonthlyFeeController;
@@ -243,42 +243,42 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
     
     // // Designation All Routes 
     
-    // Route::get('designation/view', [DesignationController::class, 'ViewDesignation'])->name('designation.view');
+    Route::get('designation/view', [DesignationController::class, 'ViewDesignation'])->name('designation.view');
     
-    // Route::get('designation/add', [DesignationController::class, 'DesignationAdd'])->name('designation.add');
+    Route::get('designation/add', [DesignationController::class, 'DesignationAdd'])->name('designation.add');
     
-    // Route::post('designation/store', [DesignationController::class, 'DesignationStore'])->name('store.designation');
+    Route::post('designation/store', [DesignationController::class, 'DesignationStore'])->name('store.designation');
     
-    // Route::get('designation/edit/{id}', [DesignationController::class, 'DesignationEdit'])->name('designation.edit');
+    Route::get('designation/edit/{id}', [DesignationController::class, 'DesignationEdit'])->name('designation.edit');
     
-    // Route::post('designation/update/{id}', [DesignationController::class, 'DesignationUpdate'])->name('update.designation');
+    Route::post('designation/update/{id}', [DesignationController::class, 'DesignationUpdate'])->name('update.designation');
     
-    // Route::get('designation/delete/{id}', [DesignationController::class, 'DesignationDelete'])->name('designation.delete');
+    Route::get('designation/delete/{id}', [DesignationController::class, 'DesignationDelete'])->name('designation.delete');
     
     
      }); 
     
     
     // /// Student Registration Routes  
-    // Route::prefix('students')->group(function(){
+    Route::prefix('students')->group(function(){
     
-    // Route::get('/reg/view', [StudentRegController::class, 'StudentRegView'])->name('student.registration.view');
+    Route::get('/reg/view', [StudentRegController::class, 'StudentRegView'])->name('student.registration.view');
     
-    // Route::get('/reg/Add', [StudentRegController::class, 'StudentRegAdd'])->name('student.registration.add');
+    Route::get('/reg/Add', [StudentRegController::class, 'StudentRegAdd'])->name('student.registration.add');
     
-    // Route::post('/reg/store', [StudentRegController::class, 'StudentRegStore'])->name('store.student.registration');
+    Route::post('/reg/store', [StudentRegController::class, 'StudentRegStore'])->name('store.student.registration');
      
-    // Route::get('/year/class/wise', [StudentRegController::class, 'StudentClassYearWise'])->name('student.year.class.wise');
+    Route::get('/year/class/wise', [StudentRegController::class, 'StudentClassYearWise'])->name('student.year.class.wise');
     
-    // Route::get('/reg/edit/{student_id}', [StudentRegController::class, 'StudentRegEdit'])->name('student.registration.edit');
+    Route::get('/reg/edit/{student_id}', [StudentRegController::class, 'StudentRegEdit'])->name('student.registration.edit');
     
-    // Route::post('/reg/update/{student_id}', [StudentRegController::class, 'StudentRegUpdate'])->name('update.student.registration');
+    Route::post('/reg/update/{student_id}', [StudentRegController::class, 'StudentRegUpdate'])->name('update.student.registration');
     
-    // Route::get('/reg/promotion/{student_id}', [StudentRegController::class, 'StudentRegPromotion'])->name('student.registration.promotion');
+    Route::get('/reg/promotion/{student_id}', [StudentRegController::class, 'StudentRegPromotion'])->name('student.registration.promotion');
     
-    // Route::post('/reg/update/promotion/{student_id}', [StudentRegController::class, 'StudentUpdatePromotion'])->name('promotion.student.registration');
+    Route::post('/reg/update/promotion/{student_id}', [StudentRegController::class, 'StudentUpdatePromotion'])->name('promotion.student.registration');
     
-    // Route::get('/reg/details/{student_id}', [StudentRegController::class, 'StudentRegDetails'])->name('student.registration.details');
+    Route::get('/reg/details/{student_id}', [StudentRegController::class, 'StudentRegDetails'])->name('student.registration.details');
     
     // // Student Roll Generate Routes 
     // Route::get('/roll/generate/view', [StudentRollController::class, 'StudentRollView'])->name('roll.generate.view');
@@ -309,7 +309,7 @@ Route::get('/admin/logout', [AdminController::class, 'Logout'])->name('admin.log
     
     // Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
     
-    //}); 
+    }); 
     
     
     
