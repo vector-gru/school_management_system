@@ -31,7 +31,7 @@ $route = Route::current()->getName();
          </a>
        </li>  
        
-   {{-- @if(Auth::user()->role == 'Admin') --}}
+   @if(Auth::user()->role == 'admin')
        <li class="treeview {{ ($prefix == '/users')?'active':'' }} " >
          <a href="#">
            <i data-feather="message-circle"></i>
@@ -45,7 +45,7 @@ $route = Route::current()->getName();
            <li><a href="{{ route('users.add') }}"><i class="ti-more"></i>Add User</a></li>
          </ul>
        </li> 
-       {{-- @endif --}}
+       @endif
          
        <li class="treeview {{ ($prefix == '/profile')?'active':'' }}">
          <a href="#">
@@ -87,7 +87,7 @@ $route = Route::current()->getName();
         </li>
 
 
-{{-- <li class="treeview {{ ($prefix == '/students')?'active':'' }}">
+<li class="treeview {{ ($prefix == '/students')?'active':'' }}">
          <a href="#">
             <i data-feather="hard-drive"></i></i> <span>Student Management</span>
            <span class="pull-right-container">
@@ -100,15 +100,15 @@ $route = Route::current()->getName();
        <li><a href="{{ route('roll.generate.view') }}"><i class="ti-more"></i>Roll Generate</a></li>
        <li><a href="{{ route('registration.fee.view') }}"><i class="ti-more"></i>Registration Fee </a></li>
         <li><a href="{{ route('monthly.fee.view') }}"><i class="ti-more"></i>Monthly Fee </a></li>
-        <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Exam Fee </a></li>
+        <li><a href="{{ route('exam.fee.view') }}"><i class="ti-more"></i>Exam Fee </a></li> 
         
         
            
          </ul>
-       </li> --}}
+       </li>
 
 
-{{-- <li class="treeview {{ ($prefix == '/employees')?'active':'' }}">
+<li class="treeview {{ ($prefix == '/employees')?'active':'' }}">
          <a href="#">
            <i data-feather="package"></i> <span>Employee Management</span>
            <span class="pull-right-container">
@@ -120,13 +120,13 @@ $route = Route::current()->getName();
 
         <li  class="{{ ($route == 'employee.salary.view')?'active':'' }}"><a href="{{ route('employee.salary.view') }}"><i class="ti-more"></i>Employee Salary</a></li>
 
-        <li><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Employee Leave</a></li>
-        <li><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a></li>
-         <li><a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Employee Monthly Salary</a></li>
+        {{-- <li><a href="{{ route('employee.leave.view') }}"><i class="ti-more"></i>Employee Leave</a></li> --}}
+        {{-- <li><a href="{{ route('employee.attendance.view') }}"><i class="ti-more"></i>Employee Attendance</a></li> --}}
+         {{-- <li><a href="{{ route('employee.monthly.salary') }}"><i class="ti-more"></i>Employee Monthly Salary</a></li> --}}
 
            
          </ul>
-       </li> --}}
+       </li>
 
 
 
