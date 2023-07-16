@@ -17,36 +17,33 @@
 
 			 <div class="box">
 				<div class="box-header with-border">
-				  <h3 class="box-title">Employee Salary Details</h3>
-	 		  <h5><strong> Employee Name </strong> {{ $details->name }} </h5>
-	 		   <h5><strong> Employee ID No </strong> {{ $details->id_no }} </h5>
+				  <h3 class="box-title">Employee Attendance List </h3>
+	<a href="{{ route('employee.attendance.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-5"> Add Attendance </a>			  
 
 				</div>
 				<!-- /.box-header -->
 				<div class="box-body">
 					<div class="table-responsive">
-					  <table class="table table-bordered table-striped">
+		 <table id="example1" class="table table-bordered table-striped">
 						<thead>
 			<tr>
 				<th width="5%">SL</th>  
-				<th>Previous Salary</th> 
-				<th>Increment Salary</th>
-				<th>Present Salary</th>
-				<th>Effected Date</th>
-				 
-			 
+				<th>Date </th> 
+				<th width="20%">Action</th>
 				 
 			</tr>
 		</thead>
 		<tbody>
-			@foreach($salary_log as $key => $log )
+			@foreach($allData as $key => $value )
 			<tr>
-				<td>{{ $key+1 }}</td>
-				<td> {{ $log->previous_salary }}</td>	
-				<td> {{ $log->increment_salary }}</td>	
-				<td> {{ $log->present_salary }}</td>	
-				<td> {{ $log->effected_salary }}</td>		 
-				 
+				<td>{{ $key+1 }}</td> 
+				<td> {{ date('d-m-Y', strtotime($value->date)) }}</td> 
+
+				<td>
+<a href="{{ route('employee.attendance.edit',$value->date) }}" class="btn btn-info">Edit</a>
+<a href="{{ route('employee.attendance.details',$value->date) }}" class="btn btn-danger">Details</a>
+
+				</td>
 				 
 			</tr>
 			@endforeach
