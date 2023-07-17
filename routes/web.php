@@ -37,9 +37,9 @@ use App\Http\Controllers\Backend\Account\AccountSalaryController;
 use App\Http\Controllers\Backend\Account\OtherCostController;
 
 use App\Http\Controllers\Backend\Report\ProfiteController;
-// use App\Http\Controllers\Backend\Report\MarkSheetController;
-// use App\Http\Controllers\Backend\Report\AttenReportController;
-// use App\Http\Controllers\Backend\Report\ResultReportController;
+use App\Http\Controllers\Backend\Report\MarkSheetController;
+use App\Http\Controllers\Backend\Report\AttenReportController;
+use App\Http\Controllers\Backend\Report\ResultReportController;
 
 
 /*
@@ -53,7 +53,7 @@ use App\Http\Controllers\Backend\Report\ProfiteController;
 |
 */
 
-// Route::group(['middleware' => 'prevent-back-history'],function(){
+Route::group(['middleware' => 'prevent-back-history'],function(){
 
 Route::get('/', function () {
     return view('auth.login');
@@ -459,32 +459,32 @@ Route::group(['middleware' => 'auth'],function(){
     
     Route::get('monthly/profit/pdf', [ProfiteController::class, 'MonthlyProfitPdf'])->name('report.profit.pdf');
     
-    // // MarkSheet Generate Routes 
-    // Route::get('marksheet/generate/view', [MarkSheetController::class, 'MarkSheetView'])->name('marksheet.generate.view');
+    // MarkSheet Generate Routes 
+    Route::get('marksheet/generate/view', [MarkSheetController::class, 'MarkSheetView'])->name('marksheet.generate.view');
     
-    // Route::get('marksheet/generate/get', [MarkSheetController::class, 'MarkSheetGet'])->name('report.marksheet.get');
+    Route::get('marksheet/generate/get', [MarkSheetController::class, 'MarkSheetGet'])->name('report.marksheet.get');
     
     
-    // // Attendance Report Routes 
-    // Route::get('attendance/report/view', [AttenReportController::class, 'AttenReportView'])->name('attendance.report.view');
+    // Attendance Report Routes 
+    Route::get('attendance/report/view', [AttenReportController::class, 'AttenReportView'])->name('attendance.report.view');
     
-    // Route::get('report/attendance/get', [AttenReportController::class, 'AttenReportGet'])->name('report.attendance.get');
+    Route::get('report/attendance/get', [AttenReportController::class, 'AttenReportGet'])->name('report.attendance.get');
     
-    // // Student Result Report Routes 
-    // Route::get('student/result/view', [ResultReportController::class, 'ResultView'])->name('student.result.view');
+    // Student Result Report Routes 
+    Route::get('student/result/view', [ResultReportController::class, 'ResultView'])->name('student.result.view');
     
-    // Route::get('student/result/get', [ResultReportController::class, 'ResultGet'])->name('report.student.result.get');
+    Route::get('student/result/get', [ResultReportController::class, 'ResultGet'])->name('report.student.result.get');
     
-    // // Student ID Card Routes 
-    // Route::get('student/idcard/view', [ResultReportController::class, 'IdcardView'])->name('student.idcard.view');
+    // Student ID Card Routes 
+    Route::get('student/idcard/view', [ResultReportController::class, 'IdcardView'])->name('student.idcard.view');
     
-    // Route::get('student/idcard/get', [ResultReportController::class, 'IdcardGet'])->name('report.student.idcard.get');
+    Route::get('student/idcard/get', [ResultReportController::class, 'IdcardGet'])->name('report.student.idcard.get');
     
     }); 
     
     
      
     
-    }); // End Middleare Auth Route 
+    }); // End Middleware Auth Route 
     
-    // });  // Prevent Back Middleare
+    });  // Prevent Back Middleware
