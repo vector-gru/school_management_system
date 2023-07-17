@@ -130,7 +130,7 @@ $route = Route::current()->getName();
 
 
 
-{{-- <li class="treeview {{ ($prefix == '/marks')?'active':'' }}">
+<li class="treeview {{ ($prefix == '/marks')?'active':'' }}">
          <a href="#">
             <i data-feather="edit-2"></i> <span> Marks Management</span>
            <span class="pull-right-container">
@@ -145,13 +145,13 @@ $route = Route::current()->getName();
 
            
          </ul>
-       </li> --}}
+       </li> 
 
 
 
 
 
-{{-- <li class="treeview {{ ($prefix == '/accounts')?'active':'' }}">
+ <li class="treeview {{ ($prefix == '/accounts')?'active':'' }}">
          <a href="#">
            <i data-feather="inbox"></i> <span> Accounts Management</span>
            <span class="pull-right-container">
@@ -166,12 +166,12 @@ $route = Route::current()->getName();
 
            
          </ul>
-       </li> --}}
+       </li>
 
        
        
         
-       {{-- <li class="header nav-small-cap">Report Interface</li>
+    <li class="header nav-small-cap">Report Interface</li>
          
       <li class="treeview {{ ($prefix == '/reports')?'active':'' }}">
          <a href="#">
@@ -183,20 +183,20 @@ $route = Route::current()->getName();
          <ul class="treeview-menu">
        <li class="{{ ($route == 'monthly.profit.view')?'active':'' }}"><a href="{{ route('monthly.profit.view') }}"><i class="ti-more"></i>Monthly-Yearly Profite</a></li> 
 
-         <li class="{{ ($route == 'marksheet.generate.view')?'active':'' }}"><a href="{{ route('marksheet.generate.view') }}"><i class="ti-more"></i>MarkSheet Generate</a></li>
+         {{-- <li class="{{ ($route == 'marksheet.generate.view')?'active':'' }}"><a href="{{ route('marksheet.generate.view') }}"><i class="ti-more"></i>MarkSheet Generate</a></li> --}}
 
-          <li class="{{ ($route == 'attendance.report.view')?'active':'' }}"><a href="{{ route('attendance.report.view') }}"><i class="ti-more"></i>Attendance Report</a></li>
+          {{-- <li class="{{ ($route == 'attendance.report.view')?'active':'' }}"><a href="{{ route('attendance.report.view') }}"><i class="ti-more"></i>Attendance Report</a></li> --}}
 
-          <li class="{{ ($route == 'student.result.view')?'active':'' }}"><a href="{{ route('student.result.view') }}"><i class="ti-more"></i>Student Result </a></li>
+          {{-- <li class="{{ ($route == 'student.result.view')?'active':'' }}"><a href="{{ route('student.result.view') }}"><i class="ti-more"></i>Student Result </a></li> --}}
 
-          <li class="{{ ($route == 'student.idcard.view')?'active':'' }}"><a href="{{ route('student.idcard.view') }}"><i class="ti-more"></i>Student ID Card </a></li>    
+          {{-- <li class="{{ ($route == 'student.idcard.view')?'active':'' }}"><a href="{{ route('student.idcard.view') }}"><i class="ti-more"></i>Student ID Card </a></li>     --}}
 
             
        
 
            
          </ul>
-       </li> --}}
+       </li> 
        
         
          
