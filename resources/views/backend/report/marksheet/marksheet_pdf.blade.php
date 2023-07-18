@@ -1,4 +1,229 @@
-@extends('admin.admin_master')
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+ 
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+ 
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+ 
+#customers tr:hover {background-color: #ddd;}
+ 
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body> 
+ 
+<table id="customers">
+  <tr>
+    <td width="40%"><h2>The Republic of Cameroon</h2>
+      <p>Peace Work Fatherland</p>
+      <p>The Ministry of Secondary Education</p>
+      <div style="height: 50px;"></div> <!-- This will create a visible space -->
+
+
+    </td>
+    <td width="20%" style="text-align: center; "><h2>
+      <img src="{{ url('upload/school.jpeg') }}" style="width: 120px; height: 100px;">
+        </h2>
+    </td>
+    <td width="40%" style="text-align: right; "><h2>My School</h2>
+          <p>School Address</p>
+          <p>Phone : +237 678509520</p>
+          <p>Email : myschool@gmail.com</p>
+          <p> <b>Student Result Report </b> </p>
+
+    </td> 
+  </tr>
+  
+   
+</table>
+
+ <br> <br>
+ <strong>Result of : </strong> {{ $allMarks['0']['exam_type']['name'] }} 
+ 
+ <br> <br>
+ 
+ 
+<table id="customers">
+  
+@php
+$assign_student = App\Models\AssignStudent::where('year_id',$allMarks['0']->year_id)->where('class_id',$allMarks['0']->class_id)->first();
+@endphp
+ 
+<tr>
+  <td width="50%">Student Id</td>
+  <td width="50%">{{ $allMarks['0']['id_no'] }}</td>
+</tr>
+ 
+<tr>
+  <td width="50%">Roll No</td>
+  <td width="50%">{{ $assign_student->roll }}</td>
+</tr>
+ 
+<tr>
+  <td width="50%">Name </td>
+  <td width="50%">{{ $allMarks['0']['student']['name'] }}</td>
+</tr>
+ 
+ 
+<tr>
+  <td width="50%">Class</td>
+  <td width="50%">{{ $allMarks['0']['student_class']['name'] }}</td>
+</tr>
+ 
+<tr>
+  <td width="50%">Year</td>
+  <td width="50%">{{ $allMarks['0']['year']['name'] }}</td>
+</tr>
+ 
+   
+   
+</table>
+ 
+ 
+<br> <br>
+ 
+ 
+ 
+<table id="customers">
+  
+<thead>
+<tr>
+    <th class="text-center">SN</th>
+    <th class="text-center">Subjects</th>
+    <th class="text-center">Marks</th>
+    <th class="text-center">Letter Grade</th>
+      <th class="text-center">Subject Remarks</th>    
+  </tr>
+</thead>
+ 
+<tbody>
+  @php
+      $total_marks = 0;
+      $total_point = 0;
+  @endphp
+ 
+@foreach($allMarks as $key => $mark)
+@php
+  $get_mark = $mark->marks;
+  $total_marks = (float)$total_marks+(float)$get_mark;
+  $total_subject = App\Models\StudentMarks::where('year_id',$mark->year_id)->where('class_id',$mark->class_id)->where('exam_type_id',$mark->exam_type_id)->where('student_id',$mark->student_id)->get()->count();
+@endphp
+<tr>
+  <td class="text-center">{{ $key+1 }}</td>
+ 
+  @php
+// $assign_subject = App\Models\AssignSubject::where('subject_id',$allMarks['0']->subject_id)->where('class_id',$allMarks['0']->class_id)->first();
+$subject =  App\Models\AssignSubject::where('id',$mark->assign_subject_id)->get();
+@endphp
+
+ 
+
+  <td class="text-center">{{ $subject['0']['school_subject']['name'] }}</td>
+  {{-- <td class="text-center">{{ $allMarks['0']['school_subject']['name'] }}</td> --}}
+ 
+  <td class="text-center">{{ $get_mark }}</td>
+ 
+@php
+  $grade_marks = App\Models\MarksGrade::where([['start_marks','<=', (int)$get_mark],['end_marks', '>=',(int)$get_mark ]])->first();
+  $grade_name = $grade_marks->grade_name;
+  $grade_point = number_format((float)$grade_marks->grade_point,2);
+  $total_point = (float)$total_point+(float)$grade_point;
+  $remarks = $grade_marks->remarks;
+@endphp
+<td class="text-center">{{ $grade_name }}</td>
+<td class="text-center">{{ $remarks }}</td>
+ 
+</tr>
+@endforeach
+ 
+<tr>
+  <td colspan="3"><strong style="padding-left: 30px;">Total Maks</strong></td>
+  <td colspan="3"><strong style="padding-left: 38px;">{{ $total_marks }}</strong></td>
+</tr>
+ 
+</tbody>
+   
+   
+</table>
+ 
+<br> <br>
+ 
+ 
+<table id="customers">
+  
+<thead>
+<tr>
+<th> Letter Grade </th>
+<th> Marks Interval </th>
+<th> Grade Point </th>
+</tr>
+</thead>
+<tbody>
+@foreach($allGrades as $mark)
+<tr>
+<td>{{ $mark->grade_name }}</td>
+ 
+<td>{{ $mark->start_marks }} - {{ $mark->end_marks }}</td>
+ 
+<td>{{ number_format((float)$mark->grade_point,2) }} - {{ ($mark->grade_point == 5)?(number_format((float)$mark->grade_point,2)):(number_format((float)$mark->grade_point+1,2) - (float)0.01) }}</td>
+</tr> 
+@endforeach
+</tbody> 
+   
+   
+</table>
+ 
+ 
+ 
+<br> <br>
+ 
+ 
+<table id="customers">
+  <tr>
+    <td>
+      <h2>Class-Teacher`s Section</h2>
+      <p>Head Teacher : _________________________________________________________</p>
+      <p>Date : ____________________________________________________________</p>
+      <p>Remarks : _________________________________________________________</p>
+    </td>
+    <td>
+      <h2>Administrators' Section</h2>
+      <p > Principal: ______________________________________________________</p>
+      <div style="height: 15px;"></div> <!-- This will create a visible space -->
+      <p style="text-align:center;"> School Stamp Here</p> <!-- This will center the text -->
+    </td> 
+  </tr>
+</table>
+
+ 
+ 
+<br> <br>
+  <i style="font-size: 15px; float: right;">Print Date : {{ date("d M Y") }}</i>
+ 
+ 
+</body>
+</html>
+
+
+
+
+{{-- @extends('admin.admin_master')
 @section('admin')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -294,4 +519,4 @@ $grade_point_avg = (float)$total_point/(float)$total_subject;
  
 
 
-@endsection
+@endsection --}}

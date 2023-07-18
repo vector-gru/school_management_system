@@ -20,11 +20,11 @@
 					<i class="ti-check-box"></i>
 			    </a>
 			</li>
-			<li class="btn-group nav-item d-none d-xl-inline-block">
+			{{-- <li class="btn-group nav-item d-none d-xl-inline-block">
 				<a href="calendar.html" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
 					<i class="ti-calendar"></i>
 			    </a>
-			</li>
+			</li> --}}
 		  </ul>
 	  </div>
 		
@@ -56,7 +56,7 @@
 				</div>
 			  </li>
 
-			  <li>
+			  {{-- <li>
 				<!-- inner menu: contains the actual data -->
 				<ul class="menu sm-scrol">
 				  <li>
@@ -96,9 +96,9 @@
 				  </li>
 				</ul>
 			  </li>
-			  <li class="footer">
+			   <li class="footer">
 				  <a href="#">View all</a>
-			  </li>
+			  </li> --}}
 			</ul>
 		  </li>	
 		  
